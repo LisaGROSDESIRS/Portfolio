@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À propos</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="horizontal.css" rel="stylesheet" />
+  </head>
+
+  <body>
+     <div class="transition active"></div>
+    <div class="top-bar">
+      <div class="top-left">
+        <div class="title">LISA</div>
+        <div class="subtitles">Gros-Desirs</div>
+      </div>
+
+      <nav class="menu" aria-label="Menu principal">
+        <a class="transition-link" href="index.html">Accueil</a>
+        <a class="transition-link" href="projet.html">Projets</a>
+        <a href="à propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div
+        class="burger"
+        id="burger"
+        aria-label="Menu"
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <nav class="menu-mobile" id="menu-mobile" aria-label="Menu mobile">
+        <a class="transition-link" href="index.html">Accueil</a>
+        <a class="transition-link" href="projet.html">Projets</a>
+        <a href="à propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+ <div id="smooth-wrapper">
+    <div id="smooth-content">
+    <section id="horizontal-scroll">
+     
+      <div class="content">
+        <section class="pres">
+          <h1>QUI SUIS-JE ?</h1>
+          <p class="presentation chars">
+            Je m'appelle Lisa GROS-DESIRS,<br />
+            Je suis diplômée d'un Bachelor en web design et communication
+            digitale.
+          </p>
+        </section>
+      </div>
+
+      <div class="content">
+        <section class="service">
+          <div class="bloc">
+            <p class="chars">
+              <strong>SERVICES</strong><br /><br />
+              Direction artistique,<br />
+              Branding,<br />
+              UX/UI design,<br />
+              Product design
+            </p>
+          </div>
+
+          <span class="vertical-line"></span>
+
+          <div class="bloc">
+            <p class="chars">
+              <strong>DESIGN</strong><br /><br />
+              Illustrator,<br />
+              Photoshop,<br />
+              Lightroom,<br />
+              Indesign,<br />
+              Figma,<br />
+              Fresco
+            </p>
+          </div>
+
+          <span class="vertical-line"></span>
+
+          <div class="bloc">
+            <p class="chars">
+              <strong>DÉVELOPPEMENT</strong><br /><br />
+              HTML/CSS/JS,<br />
+              GSAP,<br />
+              Github
+            </p>
+          </div>
+
+          <span class="vertical-line"></span>
+
+          <div class="bloc">
+            <p class="chars">
+              <strong>AUTRES</strong><br /><br />
+              Direction artistique,<br />
+              SEO,<br />
+              Gestion réseaux sociaux,<br />
+              Notion
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <div class="content">
+        <section class="service">
+          <div class="bloc">
+            <h1>POURQUOI J'AI CHOISI LE GRAPHISME ?</h1><br /><br />
+            <p >
+              J’ai toujours ressenti le besoin de créer des univers visuels et
+              de trouver du sens dans ce que j’observe. Les couleurs, les
+              formes, les affiches, les logos ou les couvertures de livres
+              m’inspiraient des histoires cachées, comme si chaque image avait
+              quelque chose à raconter.<br/> Un jour, une publicité m’a
+              particulièrement marquée : celle d’un ours devenu producteur et
+              réalisateur par passion, à la fin de ceci, une phrase ne m'a jamais quitté<br/> <p class="citation"><i> « Vous savez, j’ai
+              vu tellement de grands films qu’un jour je me suis dit… pourquoi
+              pas <strong>MOI</strong> ? » </i></p>
+              </p>
+
+              <p>
+              <br/><strong>ALORS</strong>, aujourd’hui, la direction artistique et le graphisme me permet d’unir
+              cette sensibilité et cette curiosité à volonté pour créer des
+              expériences visuelles cohérentes et porteuses d’émotion..
+            </p>
+          </div>
+        </section>
+      </div>
+    </section>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="observer.js"></script>
+  </body>
+</html>

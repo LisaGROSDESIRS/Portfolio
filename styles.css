@@ -1,0 +1,395 @@
+/* General Styles */
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0 20px; /* Base padding for desktop */
+  background-color: #fff;
+  color: #000;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 40px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+}
+
+/* Layout Components */
+.section {
+  margin-top: 40px;
+  padding: 0 40px;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.info-text {
+  flex: 1;
+  min-width: 250px;
+  font-size: 16px;
+  line-height: 2.5;
+}
+
+.info-text strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.info-image {
+  flex: 1;
+  min-width: 250px;
+  height: auto;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Bannière and Button */
+.bandeaux-container {
+  position: relative;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.bandeaux {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.bandeaux a {
+  margin: 0 40px;
+}
+
+.btn-retour {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-retour:hover {
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Animations and Scrolling Text */
+.repeated-text {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin: 40px 0 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 64px;
+}
+
+.scroll {
+  white-space: nowrap;
+  width: 100%;
+}
+
+.scroll div {
+  display: flex;
+  gap: 2em;
+}
+
+.scroll p {
+  line-height: 2;
+  font-family: "Playfair Display", serif;
+  margin: 0;
+  color: #000000;
+  opacity: 0.2;
+}
+
+.gauche {
+  animation: gauche 30s infinite linear;
+  font-weight: 200;
+}
+
+@keyframes gauche {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.droite {
+  animation: droite 30s infinite linear;
+}
+
+@keyframes droite {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Section 2 Variants (General) */
+.section2, .section2ddf, .section2gallery, .section2OC, .section2mo {
+  width: 100%;
+  color: white;
+  margin: 20px -20px; /* Negative margin for full width */
+  padding: 0 40px;
+  padding-bottom: 10px;
+}
+
+.section2 h2, .section2ddf h2, .section2gallery h2, .section2OC h2, .section2mo h2 {
+  padding: 30px 40px 10px 40px;
+}
+
+.section2 p, .section2ddf p, .section2gallery p, .section2OC p, .section2mo p {
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.5;
+  padding: 0 40px;
+  max-width: 850px;
+}
+
+/* Specific Background Colors */
+.section2 {
+  background-color: #10319e;
+}
+
+.section2ddf {
+  background-color: #8c6cad;
+}
+
+.section2gallery {
+  background-color: #72b369;
+}
+
+.section2OC {
+  background-color: #242424;
+}
+
+.section2mo {
+  background-color: #60cdff;
+}
+
+/* Large Image and Iframe */
+.large-image {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  background-color: #10319e;
+  margin: 20px 0;
+}
+
+.iframe-container {
+  position: relative;
+  width: 96%;
+  height: 0;
+  padding-bottom: 135%; /* Aspect ratio for desktop */
+  overflow: hidden;
+  margin: 40px;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+/* Gallery Styles (Unified for Consistency) */
+
+.GGDL-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.gallerie{
+  width: 45%;
+  margin: 40px;
+  border-radius: 10px;
+}
+
+.trio{
+  width: 29%;
+  margin: 40px;
+  border-radius: 10px;
+}
+
+.full{
+  margin-top: 80px;
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.bandeaux-container a {
+  margin: 40px;
+}
+
+.bandes{
+    margin: 40px auto;
+    width: 94%; /* largeur ajustable */
+    display: block;
+    border-radius: 10px;
+}
+
+.bande{
+    margin: 40px auto;
+    width: 100%; /* largeur ajustable */
+    display: block;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+    padding: 0 10px;
+  }
+
+  .section {
+    padding: 0 10px;
+  }
+
+  .section2, .section2ddf, .section2gallery, .section2OC, .section2mo {
+    margin: 20px -10px;
+    padding: 0 10px;
+  }
+
+  .info-container {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .info-text {
+    font-size: 14px;
+  }
+
+  .info-text strong {
+    font-size: 16px;
+  }
+
+  .repeated-text {
+    font-size: 10px;
+  }
+
+  .droite p {
+    font-size: 24px;
+  }
+
+  .gauche p {
+    font-size: 22px;
+  }
+
+  .bandeaux-container {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .iframe-container {
+    padding-bottom: 150%; /* Adjusted aspect for tablets */
+  }
+
+  .ddf-gallery, .GGDL-gallery, .OC-gallery, .mo-gallery {
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn-retour {
+    font-size: 14px;
+    padding: 8px 14px;
+    top: 10px;
+    left: 15px;
+  }
+
+  .bande{
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+
+  h2 {
+    font-size: 18px;
+    padding: 0 5px;
+  }
+
+  .section {
+    padding: 0 5px;
+  }
+
+  .section2, .section2ddf, .section2gallery, .section2OC, .section2mo {
+    margin: 20px -5px;
+    padding: 0 5px;
+  }
+
+  .info-text {
+    font-size: 14px;
+  }
+
+  .repeated-text {
+    font-size: 8px;
+  }
+
+  .droite p {
+    font-size: 18px;
+  }
+
+  .gauche p {
+    font-size: 16px;
+  }
+
+  .bandeaux-container {
+    width: calc(100% + 10px);
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+
+  .iframe-container {
+    padding-bottom: 160%; /* Further adjusted for phones */
+  }
+
+  .ddf-gallery, .GGDL-gallery, .OC-gallery, .mo-gallery {
+    width: 100%;
+    grid-template-columns: 1fr;
+    aspect-ratio: auto; /* Allow flexible height on small screens */
+  }
+
+  .btn-retour {
+    font-size: 12px;
+    padding: 6px 12px;
+    top: 5px;
+    left: 10px;
+  }
+}
