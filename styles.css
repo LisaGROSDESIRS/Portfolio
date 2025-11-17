@@ -221,6 +221,8 @@ h2 {
 .GGDL-gallery {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around; /* Pour espacer équitablement avec marges */
+  gap: 0; /* Évite les écarts supplémentaires */
 }
 
 .gallerie {
@@ -231,7 +233,7 @@ h2 {
 
 .trio {
   width: 29%;
-  margin: 40px;
+  margin: 35px;
   border-radius: 10px;
 }
 
@@ -268,7 +270,7 @@ video {
 }
 
 /* Media Queries for Responsiveness */
-@media (max-width: 1388px) { /* Laptops */
+@media (max-width: 1650px) { /* Laptops */
   .repeated-text {
     font-size: 56px;
   }
@@ -284,7 +286,7 @@ video {
 
   .trio {
     width: 26%;
-    margin: 35px;
+    margin: 34px;
   }
 
   .full {
