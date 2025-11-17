@@ -268,7 +268,7 @@ video {
 }
 
 /* Media Queries for Responsiveness */
-@media (max-width: 1680px) { /* Laptops */
+@media (max-width: 1650px) { /* Laptops */
   .repeated-text {
     font-size: 56px;
   }
@@ -284,7 +284,7 @@ video {
 
   .trio {
     width: 26%;
-    margin: 30px;
+    margin: 28px;
   }
 
   .full {
