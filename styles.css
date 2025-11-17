@@ -268,7 +268,7 @@ video {
 }
 
 /* Media Queries for Responsiveness */
-@media (max-width: 2580px) { /* Laptops */
+@media (max-width: 1680px) { /* Laptops */
   .repeated-text {
     font-size: 56px;
   }
