@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
           trigger: "#horizontal-scroll",
           pin: true,
           scrub: 1,
+          start: "top top",
+          end: () => "+=" + (contents.length - 1) * window.innerHeight, // Arrête exactement après la dernière section
         }
       });
     } else {
@@ -24,6 +26,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
           trigger: "#horizontal-scroll",
           pin: true,
           scrub: 1,
+          start: "top top",
+          end: () => "+=" + (contents.length - 1) * window.innerWidth, // Arrête exactement après la dernière section
         }
       });
     }
