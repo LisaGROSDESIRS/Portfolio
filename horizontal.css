@@ -296,8 +296,7 @@ p {
   }
 
   #horizontal-scroll .content {
-    width: 100%;          /* chaque bloc reprend la largeur normale */
-    height: auto;         /* évite les 100vh inutiles */
+    width: 100%;          /* chaque bloc reprend la largeur normale */        /* évite les 100vh inutiles */
     padding: 80px 0;      /* un peu d’air pour les sections */
   }
 
