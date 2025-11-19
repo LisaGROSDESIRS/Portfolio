@@ -78,5 +78,24 @@ gsap.from(split.words, {
 
  });
 
+document.addEventListener("DOMContentLoaded", (event) => {
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 👉 Désactiver l'horizontal sur mobile
+  if (window.innerWidth > 768) { 
+      const contents = gsap.utils.toArray("#horizontal-scroll .content");
+
+      gsap.to(contents, {
+          xPercent: -100 * (contents.length - 1),
+          scrollTrigger: {
+              trigger: "#horizontal-scroll",
+              pin: true,
+              scrub: 1
+          }
+      });
+  }
+});
+
 
  
