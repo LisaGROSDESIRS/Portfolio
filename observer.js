@@ -51,3 +51,24 @@ mm.add(
     }
   }
 );
+
+    document.querySelectorAll('.burger').forEach(burger => {
+      const menu = burger.nextElementSibling;
+      const toggleMenu = () => {
+        const active = burger.classList.toggle('active');
+        menu.style.display = active ? 'flex' : 'none';
+      };
+      burger.addEventListener('click', toggleMenu);
+      burger.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleMenu();
+        }
+      });
+      menu.querySelectorAll('a').forEach(link =>
+        link.addEventListener('click', () => {
+          burger.classList.remove('active');
+          menu.style.display = 'none';
+        })
+      );
+    });
