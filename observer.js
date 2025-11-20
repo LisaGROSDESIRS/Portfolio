@@ -1,28 +1,31 @@
+// Enregistrement du plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+// Création d'un objet MatchMedia GSAP pour gérer les conditions
 const mm = gsap.matchMedia();
 
 mm.add(
   {
+    // Définition des conditions d'écran
     isDesktop: "(min-width: 769px)",
     isMobile: "(max-width: 768px)",
   },
   (context) => {
-    let { isDesktop, isMobile } = context.conditions;
+    const { isDesktop, isMobile } = context.conditions;
 
     if (isDesktop) {
-      // SELECTEUR des sections à scroller horizontalement
+      // Sélection du conteneur et des sections
+      const container = document.querySelector("#horizontal-scroll");
       const sections = gsap.utils.toArray("#horizontal-scroll .content");
 
-      // Nettoyer au cas où dans un resize, on relance la fonction.
+      // Nettoyage des ScrollTrigger existants au cas où
       ScrollTrigger.getAll().forEach((st) => st.kill());
 
-      // Réinitialiser les styles au cas où (utile si reload ou resize)
-      const container = document.querySelector("#horizontal-scroll");
+      // Configuration du conteneur pour scroll horizontal
       container.style.overflowX = "hidden";
       container.style.display = "flex";
 
-      // Animation GSAP : translation en % selon le nombre de sections
+      // Animation GSAP pour défilement horizontal des sections
       gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: "none",
@@ -31,16 +34,16 @@ mm.add(
           pin: true,
           scrub: 1,
           snap: 1 / (sections.length - 1),
-          end: () => "+=" + container.offsetWidth,
+          end: () => "+=" + (container.scrollWidth - window.innerWidth),
         },
       });
     }
 
     if (isMobile) {
-      // On désactive tous les ScrollTriggers (dont le pin et tween)
+      // Désactivation des ScrollTrigger au mobile pour scroll vertical naturel
       ScrollTrigger.getAll().forEach((st) => st.kill());
 
-      // On peut remettre le container à un affichage normal, scroll vertical naturel.
+      // Réinitialisation du style pour le scroll vertical classique
       const container = document.querySelector("#horizontal-scroll");
       container.style.removeProperty("transform");
       container.style.removeProperty("overflow-x");
@@ -48,3 +51,4 @@ mm.add(
     }
   }
 );
+
