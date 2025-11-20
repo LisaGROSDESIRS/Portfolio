@@ -267,19 +267,7 @@ p {
   #horizontal-scroll .content {
     width: 100vw;
     height: auto;
-    padding: 0 !important;
-    margin: 0 !important;
     box-sizing: border-box;
   }
 
-  /* Suppression de l’espace entre les sections "services" */
-  .content.service-first {
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  .content.service-second {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
 }
