@@ -11,7 +11,8 @@
 /* Corps */
 html,
 body {
-  overflow: hidden; /* ← évite les conflits vh mobile */
+  height: 100%;
+  overflow: hidden;
   font-family: "Montserrat", Arial, sans-serif;
 }
 
@@ -120,14 +121,12 @@ body {
 
 /* --- CONTAINER ET PAGES --- */
 .container {
-  height: 100dvh;
   height: 100vh;
   width: 100vw;
   position: relative;
 }
 
 .pages {
-  height: 100dvh;
   height: 100vh;
   width: 100vw;
   overflow-y: auto;
@@ -143,7 +142,6 @@ body {
 
 .page {
   position: relative;
-  height: 100dvh;
   height: 100vh;
   width: 100vw;
   scroll-snap-align: start;
@@ -155,23 +153,39 @@ body {
 }
 
 /* Backgrounds */
-.page1 { background-image: url("baleine.jpg"); }
-.page2 { background-image: url("clock.jpg"); }
-.page3 { background-image: url("femmes.jpg"); }
-.page4 { background-image: url("pc.jpg"); }
-.page5 { background-image: url("mormant plage.png"); }
+.page1 {
+  background-image: url("baleine.jpg");
+}
+.page2 {
+  background-image: url("clock.jpg");
+}
+.page3 {
+  background-image: url("femmes.jpg");
+}
+.page4 {
+  background-image: url("pc.jpg");
+}
+.page5 {
+  background-image: url("mormant plage.png");
+}
 
 #video-fond {
   overflow: hidden;
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 0;
   filter: blur(3px);
 }
 
 .transition {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgb(24, 24, 24);
   z-index: 10;
   opacity: 1;
@@ -187,10 +201,11 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   z-index: 0;
 }
-
+/* 1. Pas de support d'object-fit */
 @media (min-aspect-ratio: 16/9) {
   #video-fond > video {
     height: 300%;
@@ -203,19 +218,23 @@ body {
     left: -100%;
   }
 }
-
+/* 2. En cas de support d'object-fit, écrase les règles en (1) */
 @supports (object-fit: cover) {
   #video-fond > video {
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
     object-fit: cover;
   }
 }
 
 /* --- CONTENU DE CHAQUE PAGE --- */
+
+/* Titre centré un peu plus haut */
 .center-left {
   position: absolute;
-  top: 43%;
+  top: 43%; /* un peu plus haut que le centre */
   left: 40px;
   transform: translateY(-50%);
   z-index: 2;
@@ -240,6 +259,7 @@ body {
   text-align: center;
   z-index: 2;
   width: 100%;
+  z-index: 1;
   text-shadow: rgb(0, 29, 2) 1px 0 10px;
 }
 
@@ -253,16 +273,26 @@ body {
 .subtitle-primary {
   margin-top: 20px;
   font-family: "Playfair Display", serif;
-  font-size: 30px;
+  font-size: 24px;
   color: white;
+  font-size: 30px;
 }
 
 .subtitle-primary a {
   color: white;
 }
+
 .subtitle-primary a:hover {
   color: rgb(65, 198, 255);
 }
+
+/*#animation {
+background: #2A7B9B;
+background: -webkit-linear-gradient(90deg, rgb(35, 145, 189) 0%, rgb(64, 180, 112) 60%, rgb(185, 173, 61) 100%);
+background: -moz-linear-gradient(90deg,  rgb(35, 145, 189) 0%, rgb(64, 180, 112) 60%, rgb(185, 173, 61) 100%);
+background: linear-gradient(90deg, rgb(35, 145, 189) 0%, rgb(64, 180, 112) 60%, rgb(185, 173, 61) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2A7B9B", endColorstr="#EDDD53", GradientType=1);
+}*/
 
 .subtitle a {
   color: white;
@@ -274,16 +304,20 @@ body {
   text-decoration: underline;
 }
 
-/* Bas de page */
+/* Bas de page : rôles à gauche, number à droite */
 .bottom-right {
   position: absolute;
   bottom: 20px;
   left: 40px;
-  width: calc(100% - 80px);
+  width: calc(100% - 80px); /* pour équilibrer le spacing */
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   z-index: 2;
+}
+
+.bottom-right .roles {
+  text-align: left;
 }
 
 .bottom-right .roles-title {
@@ -299,41 +333,107 @@ body {
   line-height: 1.2;
 }
 
+/* Le grand numéro en bas à droite */
 .bottom-right .number {
   font-weight: 800;
   font-size: 72px;
   line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.roles-list a {
+  color: white;
+  text-decoration: none;
+}
+
+.roles-list a:hover {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
-  :root { --topbar-height: 64px; }
-  .top-bar { padding: 14px 30px; }
-  .center-left { left: 30px; }
-  .bottom-right { left: 30px; }
+  :root {
+    --topbar-height: 64px;
+  }
+  .top-bar {
+    padding: 14px 30px;
+    height: var(--topbar-height);
+  }
+  .center-left {
+    left: 30px;
+    top: 42%;
+  }
+  .bottom-right {
+    left: 30px;
+    width: calc(100% - 60px);
+  }
+
+  .center-primary {
+    z-index: 1;
+  }
 }
 
 @media (max-width: 768px) {
-  .menu { display: none; }
-  .burger { display: flex; }
-  .top-bar { padding: 12px 20px; }
-  .page { padding: 0 20px; }
+  .menu {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+  .top-bar {
+    padding: 12px 20px;
+  }
+  .page {
+    padding: 0 20px;
+  }
+
+  .center-left {
+    left: 20px;
+    right: 20px;
+    top: 42%;
+  }
+  .main-title {
+    font-size: 34px;
+  }
+
+  .bottom-right {
+    left: 20px;
+    width: calc(100% - 40px);
+  }
+  .bottom-right .number {
+    font-size: 44px;
+  }
 
   .page::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6); /* noir semi-transparent */
     z-index: 1;
   }
-  .page > * { z-index: 2; }
 
-  .bottom-right .number { font-size: 44px; }
+  /* le contenu reste au-dessus du filtre */
+  .page > * {
+    z-index: 2;
+  }
+
+  .center-primary {
+    z-index: 1;
+  }
 }
 
 @media (max-width: 420px) {
-  .main-title { font-size: 30px; }
-  .bottom-right .number { font-size: 38px; }
+  .main-title {
+    font-size: 30px;
+  }
+  .bottom-right .number {
+    font-size: 38px;
+  }
+  .center-primary {
+    z-index: 1;
+  }
 }
 
 /* --- ANIMATIONS --- */
