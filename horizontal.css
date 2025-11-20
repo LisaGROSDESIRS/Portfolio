@@ -298,7 +298,14 @@ p {
   #horizontal-scroll .content {
     width: 100%; 
     height: auto;/* chaque bloc reprend la largeur normale */        /* évite les 100vh inutiles */
-    padding: 0;      /* un peu d’air pour les sections */
+    padding: 80px 0;      /* un peu d’air pour les sections */
+  }
+
+   .content.service-first {
+    padding-bottom: 0;  /* Annule le padding inférieur de la première section services */
+  }
+  .content.service-second {
+    padding-top: 0;  /* Annule le padding supérieur de la deuxième section services */
   }
 
 }
