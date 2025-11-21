@@ -432,6 +432,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2A7B9B", endC
   .center-primary {
     z-index: 1;
   }
+
+  .none{
+    display:none;
+  }
 }
 
 @media (max-width: 420px) {
@@ -443,6 +447,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2A7B9B", endC
   }
   .center-primary {
     z-index: 1;
+  }
+  .none{
+    display:none;
   }
 }
 
