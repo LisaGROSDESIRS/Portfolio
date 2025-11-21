@@ -399,7 +399,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2A7B9B", endC
   }
 
   .main-primary{
-    font-size: 60px;
+    font-size: 55px;
+  }
+
+  .subtitle-primary{
+    font-size: 23px;
   }
 
   .bottom-right {
