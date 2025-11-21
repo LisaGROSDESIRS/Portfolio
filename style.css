@@ -398,6 +398,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2A7B9B", endC
     font-size: 34px;
   }
 
+  .main-prmary{
+    font-size: 60px;
+  }
+
   .bottom-right {
     left: 20px;
     width: calc(100% - 40px);
