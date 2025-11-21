@@ -409,10 +409,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2A7B9B", endC
   .bottom-right {
     left: 20px;
     width: calc(100% - 40px);
+    margin-bottom: 40px;
   }
   .bottom-right .number {
     font-size: 44px;
-    margin-bottom: 10px;
+    
   }
 
   .page::before {
