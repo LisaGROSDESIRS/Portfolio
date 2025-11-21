@@ -1,47 +1,58 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+// Enregistrement du plugin ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-  gsap.registerPlugin(ScrollTrigger)
-  const contents = gsap.utils.toArray("#horizontal-scroll .content");
-  gsap.to(contents,{
+// Création d'un objet MatchMedia GSAP pour gérer les conditions
+const mm = gsap.matchMedia();
 
-    xPercent: -100 * (contents.length-1),
-    scrollTrigger: {
-      trigger:"#horizontal-scroll",
-      pin: true,
-      scrub: 1,
+mm.add(
+  {
+    // Définition des conditions d'écran
+    isDesktop: "(min-width: 769px)",
+    isMobile: "(max-width: 768px)",
+  },
+  (context) => {
+    const { isDesktop, isMobile } = context.conditions;
+
+    if (isDesktop) {
+      // Sélection du conteneur et des sections
+      const container = document.querySelector("#horizontal-scroll");
+      const sections = gsap.utils.toArray("#horizontal-scroll .content");
+
+      // Nettoyage des ScrollTrigger existants au cas où
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+
+      // Configuration du conteneur pour scroll horizontal
+      container.style.overflowX = "hidden";
+      container.style.display = "flex";
+
+      // Animation GSAP pour défilement horizontal des sections
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#horizontal-scroll",
+          pin: true,
+          scrub: 1,
+          snap: 1 / (sections.length - 1),
+          end: () => "+=" + (container.scrollWidth - window.innerWidth),
+        },
+      });
     }
 
-  })
-});
+    if (isMobile) {
+      // Désactivation des ScrollTrigger au mobile pour scroll vertical naturel
+      ScrollTrigger.getAll().forEach((st) => st.kill());
 
- document.addEventListener("DOMContentLoaded", (event) => {
+      // Réinitialisation du style pour le scroll vertical classique
+      const container = document.querySelector("#horizontal-scroll");
+      container.style.removeProperty("transform");
+      container.style.removeProperty("overflow-x");
+      container.style.display = "block";
+    }
+  }
+);
 
-    //text
-
-  gsap.registerPlugin(SplitText)
-
-  document.fonts.ready.then(() => {
-  gsap.set(".chars", { opacity: 1 });
-
-let split =  SplitText.create(".chars",{
-    type: "words"
-});
-
-gsap.from(split.words, {
-    y: 100,
-    autoAlpha: 0,
-    stagger: 0.15,
-    rotation: "random(-40, 40)",
-    duration: 0.5,
-    ease : "back",
-})
-
-
- });
-
-});
-
- document.querySelectorAll('.burger').forEach(burger => {
+    document.querySelectorAll('.burger').forEach(burger => {
       const menu = burger.nextElementSibling;
       const toggleMenu = () => {
         const active = burger.classList.toggle('active');
@@ -61,22 +72,3 @@ gsap.from(split.words, {
         })
       );
     });
-
-  document.addEventListener("DOMContentLoaded", (event) => {
-
-        // SCROLL
-
-  gsap.registerPlugin(ScrollSmoother)
-   // create the smooth scroller FIRST!
-  let smoother = ScrollSmoother.create({
-    wrapper: '#smooth-wrapper',
-    content: '#smooth-content',
-    smooth: 2,
-    smoothTouch:0.1,
-    effects: true,
-  });
-
- });
-
-
- 
